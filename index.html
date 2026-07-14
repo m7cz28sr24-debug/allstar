@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>マイナビオールスター2026 応援歌</title>
+
+    <meta name="theme-color" content="#0d1b2a">
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="apple-touch-icon" href="icons/icon-192.png">
+
+</head>
+
+<body>
+
+<div id="app">
+
+    <!-- ヘッダー -->
+    <header class="header">
+
+        <div class="titleArea">
+
+            <div class="titleIcon">⚾</div>
+
+            <div>
+
+                <h1>マイナビオールスター2026</h1>
+
+                <p>応援歌ライブラリ</p>
+
+            </div>
+
+        </div>
+
+    </header>
+
+    <!-- リーグ切替 -->
+
+    <section class="leagueSection">
+
+        <button
+            id="btnCentral"
+            class="leagueButton active"
+            data-league="セ">
+
+            セ・リーグ
+
+        </button>
+
+        <button
+            id="btnPacific"
+            class="leagueButton"
+            data-league="パ">
+
+            パ・リーグ
+
+        </button>
+
+    </section>
+
+    <!-- 検索 -->
+
+    <section class="searchSection">
+
+        <input
+            id="searchInput"
+            type="search"
+            autocomplete="off"
+            placeholder="選手名・球団名で検索">
+
+    </section>
+
+    <!-- 一覧 -->
+
+    <main id="playerList" class="playerList">
+
+    </main>
+
+</div>
+
+<!-- Bottom Sheet -->
+
+<div id="overlay" class="overlay"></div>
+
+<section id="bottomSheet" class="bottomSheet">
+
+    <div class="sheetHandle"></div>
+
+    <div class="sheetHeader">
+
+        <div>
+
+            <h2 id="sheetName"></h2>
+
+            <p id="sheetTeam"></p>
+
+        </div>
+
+        <button
+            id="closeButton"
+            class="closeButton">
+
+            ✕
+
+        </button>
+
+    </div>
+
+    <div class="fontSizeArea">
+
+        <button
+            class="fontButton"
+            data-size="-1">
+
+            A−
+
+        </button>
+
+        <button
+            class="fontButton"
+            data-size="0">
+
+            A
+
+        </button>
+
+        <button
+            class="fontButton"
+            data-size="1">
+
+            A＋
+
+        </button>
+
+    </div>
+
+    <div class="lyricsArea">
+
+        <div
+            id="lyrics"
+            class="lyrics">
+
+        </div>
+
+        <div
+            id="furigana"
+            class="furigana">
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- テンプレート -->
+
+<template id="playerCardTemplate">
+
+    <article class="playerCard">
+
+        <div class="logoArea">
+
+            <img
+                class="teamLogo"
+                src=""
+                alt="">
+
+        </div>
+
+        <div class="playerInfo">
+
+            <h3 class="playerName"></h3>
+
+            <p class="playerTeam"></p>
+
+        </div>
+
+        <div class="arrow">
+
+            ＞
+
+        </div>
+
+    </article>
+
+</template>
+
+<script src="data.js"></script>
+<script src="script.js"></script>
+
+</body>
+</html>
