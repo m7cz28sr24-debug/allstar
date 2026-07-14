@@ -1,0 +1,497 @@
+:root{
+
+    --navy:#0d1b2a;
+    --gold:#d4af37;
+    --bg:#f5f7fa;
+    --card:#ffffff;
+    --text:#222;
+    --sub:#777;
+    --border:#e6e6e6;
+
+    --shadow:0 8px 24px rgba(0,0,0,.08);
+
+    --radius:18px;
+
+    --fontSize:24px;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    background:var(--bg);
+
+    color:var(--text);
+
+    font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Yu Gothic",
+    sans-serif;
+
+    -webkit-font-smoothing:antialiased;
+
+    min-height:100vh;
+
+    padding-bottom:80px;
+}
+
+#app{
+
+    max-width:700px;
+
+    margin:auto;
+}
+
+/* ======================= */
+
+.header{
+
+    background:linear-gradient(
+        135deg,
+        var(--navy),
+        #17324e
+    );
+
+    color:white;
+
+    padding:
+
+        calc(env(safe-area-inset-top) + 24px)
+
+        24px
+
+        28px;
+
+    border-radius:
+
+        0
+
+        0
+
+        28px
+
+        28px;
+
+    box-shadow:var(--shadow);
+}
+
+.titleArea{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+}
+
+.titleIcon{
+
+    font-size:40px;
+}
+
+.header h1{
+
+    font-size:28px;
+
+    font-weight:700;
+}
+
+.header p{
+
+    margin-top:4px;
+
+    color:#dddddd;
+}
+
+/* ======================= */
+
+.leagueSection{
+
+    display:flex;
+
+    gap:12px;
+
+    padding:20px;
+}
+
+.leagueButton{
+
+    flex:1;
+
+    border:none;
+
+    border-radius:999px;
+
+    background:white;
+
+    color:var(--navy);
+
+    padding:15px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+    box-shadow:var(--shadow);
+}
+
+.leagueButton.active{
+
+    background:var(--gold);
+
+    color:white;
+}
+
+/* ======================= */
+
+.searchSection{
+
+    padding:
+
+    0
+
+    20px
+
+    20px;
+}
+
+#searchInput{
+
+    width:100%;
+
+    padding:16px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:white;
+
+    font-size:16px;
+
+    box-shadow:var(--shadow);
+
+    outline:none;
+}
+
+/* ======================= */
+
+.playerList{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:15px;
+
+    padding:0 20px;
+}
+
+.playerCard{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    background:var(--card);
+
+    padding:18px;
+
+    border-radius:20px;
+
+    cursor:pointer;
+
+    transition:.2s;
+
+    box-shadow:var(--shadow);
+}
+
+.playerCard:active{
+
+    transform:scale(.98);
+}
+
+.logoArea{
+
+    width:56px;
+
+    height:56px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+}
+
+.teamLogo{
+
+    width:52px;
+
+    height:52px;
+
+    object-fit:contain;
+}
+
+.playerInfo{
+
+    flex:1;
+}
+
+.playerName{
+
+    font-size:22px;
+
+    font-weight:700;
+}
+
+.playerTeam{
+
+    margin-top:4px;
+
+    color:var(--sub);
+
+    font-size:14px;
+}
+
+.arrow{
+
+    color:#bbb;
+
+    font-size:22px;
+}
+
+/* ======================= */
+
+.overlay{
+
+    position:fixed;
+
+    inset:0;
+
+    background:rgba(0,0,0,.45);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.25s;
+
+    z-index:90;
+}
+
+.overlay.show{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+/* ======================= */
+
+.bottomSheet{
+
+    position:fixed;
+
+    left:0;
+
+    right:0;
+
+    bottom:0;
+
+    background:white;
+
+    border-radius:
+
+        28px
+
+        28px
+
+        0
+
+        0;
+
+    transform:translateY(105%);
+
+    transition:.28s;
+
+    z-index:100;
+
+    max-height:88vh;
+
+    overflow:auto;
+
+    padding:20px;
+}
+
+.bottomSheet.show{
+
+    transform:translateY(0);
+}
+
+.sheetHandle{
+
+    width:54px;
+
+    height:6px;
+
+    background:#cccccc;
+
+    border-radius:999px;
+
+    margin:
+
+        0
+
+        auto
+
+        22px;
+}
+
+.sheetHeader{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:flex-start;
+
+    margin-bottom:18px;
+}
+
+.sheetHeader h2{
+
+    font-size:30px;
+}
+
+.sheetHeader p{
+
+    margin-top:4px;
+
+    color:var(--sub);
+}
+
+.closeButton{
+
+    border:none;
+
+    background:none;
+
+    font-size:30px;
+
+    cursor:pointer;
+}
+
+/* ======================= */
+
+.fontSizeArea{
+
+    display:flex;
+
+    justify-content:flex-end;
+
+    gap:10px;
+
+    margin-bottom:20px;
+}
+
+.fontButton{
+
+    border:none;
+
+    background:var(--navy);
+
+    color:white;
+
+    padding:8px 14px;
+
+    border-radius:999px;
+
+    cursor:pointer;
+}
+
+/* ======================= */
+
+.lyrics{
+
+    white-space:pre-line;
+
+    font-size:var(--fontSize);
+
+    line-height:2;
+
+    font-weight:700;
+}
+
+.furigana{
+
+    white-space:pre-line;
+
+    color:#999;
+
+    margin-top:26px;
+
+    font-size:14px;
+
+    line-height:2;
+}
+
+/* ======================= */
+
+@media (prefers-color-scheme:dark){
+
+    :root{
+
+        --bg:#0d1117;
+
+        --card:#161b22;
+
+        --text:#ffffff;
+
+        --sub:#bbbbbb;
+
+        --border:#333;
+
+    }
+
+    body{
+
+        background:var(--bg);
+    }
+
+    #searchInput{
+
+        background:#20262f;
+
+        color:white;
+    }
+
+    .leagueButton{
+
+        background:#20262f;
+
+        color:white;
+    }
+
+    .bottomSheet{
+
+        background:#161b22;
+    }
+
+}
