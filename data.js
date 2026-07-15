@@ -18,6 +18,8 @@ const players = [
 
         name: "古賀優大",
 
+        number: "2",
+
         furigana: "こがゆうだい",
 
         song:
@@ -36,6 +38,8 @@ const players = [
 
         logo: "logos/tigers.png",
 
+        number: "12",
+        
         name: "坂本誠志郎",
 
         furigana: "さかもとせいしろう",
@@ -62,6 +66,8 @@ const players = [
 
         logo: "logos/giants.png",
 
+        number: "24",
+        
         name: "大城卓三",
 
         furigana: "おおしろたくみ",
