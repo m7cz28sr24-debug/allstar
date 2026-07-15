@@ -111,6 +111,11 @@ function renderPlayers(){
                 player.furigana
                     .toLowerCase()
                     .includes(keyword)
+                
+                ||
+
+                player.number
+                    .includes(keyword)
 
             );
 
