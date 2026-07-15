@@ -449,6 +449,7 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 }
 
 .lyrics{
+  color:var(--team-color,var(--gold-dark));
   white-space:pre-line;
   font-size:var(--lyrics-size);
   font-weight:750;
@@ -456,8 +457,8 @@ button:focus-visible,input:focus-visible,select:focus-visible{
 }
 
 .lyrics .callLine{
-  color:var(--team-color,var(--gold-dark));
-  font-weight:900;
+  color:inherit;
+  font-weight:inherit;
 }
 
 .noLyricsMessage{
