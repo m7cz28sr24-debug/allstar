@@ -140,6 +140,8 @@ players.sort((a, b) =>
 
     logo : "logos/○○.png",
 
+    number: "背番号",
+    
     name : "選手名",
 
     furigana : "検索用",
