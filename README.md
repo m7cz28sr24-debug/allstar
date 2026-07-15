@@ -63,3 +63,13 @@ logosフォルダへ、次のファイル名で配置してください。
 - 大城卓三
 
 その他の選手はdata.jsのsongとsongFuriganaへ追記してください。
+
+
+## Ver.1.1：応援歌の入力方法
+
+- data.js：球団情報・選手名簿
+- songs.js：応援歌とふりがな
+- song-input.html：入力補助画面
+
+応援歌追加時はdata.jsを編集せず、song-input.htmlを開いて入力します。
+最後に出力されたsongs.jsをGitHubへアップロードし、既存のsongs.jsを置き換えてください。

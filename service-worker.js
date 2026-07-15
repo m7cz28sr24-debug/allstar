@@ -1,4 +1,4 @@
-const CACHE_NAME = "allstar-2026-v1";
+const CACHE_NAME = "allstar-2026-v1-1";
 
 const APP_FILES = [
   "./",
@@ -6,6 +6,7 @@ const APP_FILES = [
   "./style.css",
   "./script.js",
   "./data.js",
+  "./songs.js",
   "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png"

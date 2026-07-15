@@ -66,7 +66,11 @@ function teamColor(player) {
 }
 
 function teamLogo(player) {
-  return player.logo || teams[player.team]?.logo || "";
+  return teams[player.team]?.logo || "";
+}
+
+function songData(player) {
+  return songs[player.name] || { song: "", songFurigana: "" };
 }
 
 function triggerHaptic() {
@@ -301,8 +305,9 @@ function openSheet(player) {
   sheetName.textContent = player.name;
   sheetTeam.textContent = `${player.team}・${player.position}`;
 
-  renderLyrics(player.song || "");
-  furigana.textContent = player.songFurigana || "";
+  const playerSong = songData(player);
+  renderLyrics(playerSong.song);
+  furigana.textContent = playerSong.songFurigana;
 
   updateSheetFavoriteButton();
   updateNavigationButtons();
@@ -361,12 +366,16 @@ sheetFavoriteButton.addEventListener("click", () => {
 });
 
 copyButton.addEventListener("click", async () => {
-  if (!currentPlayer?.song) {
+  if (!currentPlayer) return;
+
+  const playerSong = songData(currentPlayer);
+
+  if (!playerSong.song) {
     showToast("コピーできる歌詞がありません");
     return;
   }
 
-  const copyText = `${currentPlayer.name}（${currentPlayer.team}）\n\n${currentPlayer.song}`;
+  const copyText = `${currentPlayer.name}（${currentPlayer.team}）\n\n${playerSong.song}`;
 
   try {
     await navigator.clipboard.writeText(copyText);

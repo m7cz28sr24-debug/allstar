@@ -1,7 +1,4 @@
-// マイナビオールスターゲーム2026 出場選手データ
-// 監督・コーチは除外しています。
-// 歌詞は、この会話で提供された3選手分のみ収録しています。
-
+// 球団情報（ロゴと色）はここだけで管理します。
 const teams = {
   "東京ヤクルトスワローズ": { logo: "logos/swallows.png", color: "#0f8a5f" },
   "読売ジャイアンツ": { logo: "logos/giants.png", color: "#f26a21" },
@@ -17,683 +14,486 @@ const teams = {
   "埼玉西武ライオンズ": { logo: "logos/lions.png", color: "#123e7c" },
 };
 
+// 選手情報。logo・song・songFuriganaは持たせません。
 const players = [
   {
     league: "セ",
     position: "投手",
     team: "東京ヤクルトスワローズ",
-    logo: "logos/swallows.png",
     number: "26",
     name: "山野太一",
-    furigana: "やまのたいち",
-    song: ``,
-    songFurigana: ``
+    furigana: "やまのたいち"
   },
   {
     league: "セ",
     position: "投手",
     team: "読売ジャイアンツ",
-    logo: "logos/giants.png",
     number: "15",
     name: "大勢",
-    furigana: "たいせい",
-    song: ``,
-    songFurigana: ``
+    furigana: "たいせい"
   },
   {
     league: "セ",
     position: "投手",
     team: "東京ヤクルトスワローズ",
-    logo: "logos/swallows.png",
     number: "11",
     name: "Ｊ．キハダ",
-    furigana: "じぇーきはだ",
-    song: ``,
-    songFurigana: ``
+    furigana: "じぇーきはだ"
   },
   {
     league: "セ",
     position: "投手",
     team: "阪神タイガース",
-    logo: "logos/tigers.png",
     number: "29",
     name: "髙橋遥人",
-    furigana: "たかはしはると",
-    song: ``,
-    songFurigana: ``
+    furigana: "たかはしはると"
   },
   {
     league: "セ",
     position: "投手",
     team: "阪神タイガース",
-    logo: "logos/tigers.png",
     number: "98",
     name: "Ｒ．ドリス",
-    furigana: "あーるどりす",
-    song: ``,
-    songFurigana: ``
+    furigana: "あーるどりす"
   },
   {
     league: "セ",
     position: "投手",
     team: "横浜DeNAベイスターズ",
-    logo: "logos/baystars.png",
     number: "11",
     name: "東克樹",
-    furigana: "あずまかつき",
-    song: ``,
-    songFurigana: ``
+    furigana: "あずまかつき"
   },
   {
     league: "セ",
     position: "投手",
     team: "横浜DeNAベイスターズ",
-    logo: "logos/baystars.png",
     number: "62",
     name: "Ｓ．レイノルズ",
-    furigana: "えすれいのるず",
-    song: ``,
-    songFurigana: ``
+    furigana: "えすれいのるず"
   },
   {
     league: "セ",
     position: "投手",
     team: "読売ジャイアンツ",
-    logo: "logos/giants.png",
     number: "45",
     name: "田中瑛斗",
-    furigana: "たなかえいと",
-    song: ``,
-    songFurigana: ``
+    furigana: "たなかえいと"
   },
   {
     league: "セ",
     position: "投手",
     team: "読売ジャイアンツ",
-    logo: "logos/giants.png",
     number: "97",
     name: "井上温大",
-    furigana: "いのうえはると",
-    song: ``,
-    songFurigana: ``
+    furigana: "いのうえはると"
   },
   {
     league: "セ",
     position: "投手",
     team: "中日ドラゴンズ",
-    logo: "logos/dragons.png",
     number: "22",
     name: "大野雄大",
-    furigana: "おおのゆうだい",
-    song: ``,
-    songFurigana: ``
+    furigana: "おおのゆうだい"
   },
   {
     league: "セ",
     position: "投手",
     team: "中日ドラゴンズ",
-    logo: "logos/dragons.png",
     number: "90",
     name: "松山晋也",
-    furigana: "まつやましんや",
-    song: ``,
-    songFurigana: ``
+    furigana: "まつやましんや"
   },
   {
     league: "セ",
     position: "投手",
     team: "広島東洋カープ",
-    logo: "logos/carp.png",
     number: "53",
     name: "岡本駿",
-    furigana: "おかもとしゅん",
-    song: ``,
-    songFurigana: ``
+    furigana: "おかもとしゅん"
   },
   {
     league: "セ",
     position: "投手",
     team: "広島東洋カープ",
-    logo: "logos/carp.png",
     number: "68",
     name: "Ｔ．ハーン",
-    furigana: "てぃーはーん",
-    song: ``,
-    songFurigana: ``
+    furigana: "てぃーはーん"
   },
   {
     league: "セ",
     position: "投手",
     team: "東京ヤクルトスワローズ",
-    logo: "logos/swallows.png",
     number: "17",
     name: "清水昇",
-    furigana: "しみずのぼる",
-    song: ``,
-    songFurigana: ``
+    furigana: "しみずのぼる"
   },
   {
     league: "セ",
     position: "投手",
     team: "東京ヤクルトスワローズ",
-    logo: "logos/swallows.png",
     number: "24",
     name: "星知弥",
-    furigana: "ほしともや",
-    song: ``,
-    songFurigana: ``
+    furigana: "ほしともや"
   },
   {
     league: "セ",
     position: "捕手",
     team: "東京ヤクルトスワローズ",
-    logo: "logos/swallows.png",
     number: "2",
     name: "古賀優大",
-    furigana: "こがゆうだい",
-    song: `溢れる情熱 心奮わす
-ホームを守る 最後の砦となれ`,
-    songFurigana: `あふれるじょうねつ こころふるわす
-ほーむをまもる さいごのとりでとなれ`
+    furigana: "こがゆうだい"
   },
   {
     league: "セ",
     position: "捕手",
     team: "阪神タイガース",
-    logo: "logos/tigers.png",
     number: "12",
     name: "坂本誠志郎",
-    furigana: "さかもとせいしろう",
-    song: `狙いを定め 強気で攻めろ
-お前の時代を築け さぁぶちかませ
-
-かっとばせー
-さーかーもーとー`,
-    songFurigana: `ねらいをさだめ つよきでせめろ
-おまえのじだいをきずけ さぁぶちかませ
-
-かっとばせー
-さーかーもーとー`
+    furigana: "さかもとせいしろう"
   },
   {
     league: "セ",
     position: "捕手",
     team: "読売ジャイアンツ",
-    logo: "logos/giants.png",
     number: "24",
     name: "大城卓三",
-    furigana: "おおしろたくみ",
-    song: `鋭いまなざし
-満ちあふれる男気
-魅せろパワー
-フルスイング
-ぶち込め大城`,
-    songFurigana: `するどいまなざし
-みちあふれるおとこぎ
-みせろぱわー
-ふるすいんぐ
-ぶちこめおおしろ`
+    furigana: "おおしろたくみ"
   },
   {
     league: "セ",
     position: "捕手",
     team: "広島東洋カープ",
-    logo: "logos/carp.png",
     number: "31",
     name: "坂倉将吾",
-    furigana: "さかくらしょうご",
-    song: ``,
-    songFurigana: ``
+    furigana: "さかくらしょうご"
   },
   {
     league: "セ",
     position: "内野手",
     team: "阪神タイガース",
-    logo: "logos/tigers.png",
     number: "3",
     name: "大山悠輔",
-    furigana: "おおやまゆうすけ",
-    song: ``,
-    songFurigana: ``
+    furigana: "おおやまゆうすけ"
   },
   {
     league: "セ",
     position: "内野手",
     team: "阪神タイガース",
-    logo: "logos/tigers.png",
     number: "7",
     name: "中野拓夢",
-    furigana: "なかのたくむ",
-    song: ``,
-    songFurigana: ``
+    furigana: "なかのたくむ"
   },
   {
     league: "セ",
     position: "内野手",
     team: "阪神タイガース",
-    logo: "logos/tigers.png",
     number: "8",
     name: "佐藤輝明",
-    furigana: "さとうてるあき",
-    song: ``,
-    songFurigana: ``
+    furigana: "さとうてるあき"
   },
   {
     league: "セ",
     position: "内野手",
     team: "中日ドラゴンズ",
-    logo: "logos/dragons.png",
     number: "5",
     name: "村松開人",
-    furigana: "むらまつかいと",
-    song: ``,
-    songFurigana: ``
+    furigana: "むらまつかいと"
   },
   {
     league: "セ",
     position: "内野手",
     team: "東京ヤクルトスワローズ",
-    logo: "logos/swallows.png",
     number: "7",
     name: "長岡秀樹",
-    furigana: "ながおかひでき",
-    song: ``,
-    songFurigana: ``
+    furigana: "ながおかひでき"
   },
   {
     league: "セ",
     position: "内野手",
     team: "横浜DeNAベイスターズ",
-    logo: "logos/baystars.png",
     number: "2",
     name: "牧秀悟",
-    furigana: "まきしゅうご",
-    song: ``,
-    songFurigana: ``
+    furigana: "まきしゅうご"
   },
   {
     league: "セ",
     position: "内野手",
     team: "読売ジャイアンツ",
-    logo: "logos/giants.png",
     number: "32",
     name: "浦田俊輔",
-    furigana: "うらたしゅんすけ",
-    song: ``,
-    songFurigana: ``
+    furigana: "うらたしゅんすけ"
   },
   {
     league: "セ",
     position: "外野手",
     team: "阪神タイガース",
-    logo: "logos/tigers.png",
     number: "1",
     name: "森下翔太",
-    furigana: "もりしたしょうた",
-    song: ``,
-    songFurigana: ``
+    furigana: "もりしたしょうた"
   },
   {
     league: "セ",
     position: "外野手",
     team: "中日ドラゴンズ",
-    logo: "logos/dragons.png",
     number: "55",
     name: "細川成也",
-    furigana: "ほそかわせいや",
-    song: ``,
-    songFurigana: ``
+    furigana: "ほそかわせいや"
   },
   {
     league: "セ",
     position: "外野手",
     team: "東京ヤクルトスワローズ",
-    logo: "logos/swallows.png",
     number: "63",
     name: "増田珠",
-    furigana: "ますだしゅ",
-    song: ``,
-    songFurigana: ``
+    furigana: "ますだしゅ"
   },
   {
     league: "セ",
     position: "外野手",
     team: "読売ジャイアンツ",
-    logo: "logos/giants.png",
     number: "13",
     name: "Ｔ．キャベッジ",
-    furigana: "てぃーきゃべっじ",
-    song: ``,
-    songFurigana: ``
+    furigana: "てぃーきゃべっじ"
   },
   {
     league: "パ",
     position: "投手",
     team: "北海道日本ハムファイターズ",
-    logo: "logos/fighters.png",
     number: "17",
     name: "伊藤大海",
-    furigana: "いとうひろみ",
-    song: ``,
-    songFurigana: ``
+    furigana: "いとうひろみ"
   },
   {
     league: "パ",
     position: "投手",
     team: "千葉ロッテマリーンズ",
-    logo: "logos/marines.png",
     number: "47",
     name: "鈴木昭汰",
-    furigana: "すずきしょうた",
-    song: ``,
-    songFurigana: ``
+    furigana: "すずきしょうた"
   },
   {
     league: "パ",
     position: "投手",
     team: "オリックス・バファローズ",
-    logo: "logos/buffaloes.png",
     number: "42",
     name: "Ａ．マチャド",
-    furigana: "えーまちゃど",
-    song: ``,
-    songFurigana: ``
+    furigana: "えーまちゃど"
   },
   {
     league: "パ",
     position: "投手",
     team: "福岡ソフトバンクホークス",
-    logo: "logos/hawks.png",
     number: "19",
     name: "大津亮介",
-    furigana: "おおつりょうすけ",
-    song: ``,
-    songFurigana: ``
+    furigana: "おおつりょうすけ"
   },
   {
     league: "パ",
     position: "投手",
     team: "福岡ソフトバンクホークス",
-    logo: "logos/hawks.png",
     number: "54",
     name: "Ｒ．オスナ",
-    furigana: "あーるおすな",
-    song: ``,
-    songFurigana: ``
+    furigana: "あーるおすな"
   },
   {
     league: "パ",
     position: "投手",
     team: "北海道日本ハムファイターズ",
-    logo: "logos/fighters.png",
     number: "15",
     name: "北山亘基",
-    furigana: "きたやまこうき",
-    song: ``,
-    songFurigana: ``
+    furigana: "きたやまこうき"
   },
   {
     league: "パ",
     position: "投手",
     team: "オリックス・バファローズ",
-    logo: "logos/buffaloes.png",
     number: "00",
     name: "Ａ．エスピノーザ",
-    furigana: "えーえすぴのーざ",
-    song: ``,
-    songFurigana: ``
+    furigana: "えーえすぴのーざ"
   },
   {
     league: "パ",
     position: "投手",
     team: "オリックス・バファローズ",
-    logo: "logos/buffaloes.png",
     number: "15",
     name: "椋木蓮",
-    furigana: "むくのきれん",
-    song: ``,
-    songFurigana: ``
+    furigana: "むくのきれん"
   },
   {
     league: "パ",
     position: "投手",
     team: "東北楽天ゴールデンイーグルス",
-    logo: "logos/eagles.png",
     number: "46",
     name: "藤平尚真",
-    furigana: "ふじひらしょうま",
-    song: ``,
-    songFurigana: ``
+    furigana: "ふじひらしょうま"
   },
   {
     league: "パ",
     position: "投手",
     team: "埼玉西武ライオンズ",
-    logo: "logos/lions.png",
     number: "13",
     name: "髙橋光成",
-    furigana: "たかはしこうな",
-    song: ``,
-    songFurigana: ``
+    furigana: "たかはしこうな"
   },
   {
     league: "パ",
     position: "投手",
     team: "埼玉西武ライオンズ",
-    logo: "logos/lions.png",
     number: "20",
     name: "岩城颯空",
-    furigana: "いわきそら",
-    song: ``,
-    songFurigana: ``
+    furigana: "いわきそら"
   },
   {
     league: "パ",
     position: "投手",
     team: "埼玉西武ライオンズ",
-    logo: "logos/lions.png",
     number: "61",
     name: "平良海馬",
-    furigana: "たいらかいま",
-    song: ``,
-    songFurigana: ``
+    furigana: "たいらかいま"
   },
   {
     league: "パ",
     position: "投手",
     team: "千葉ロッテマリーンズ",
-    logo: "logos/marines.png",
     number: "15",
     name: "横山陸人",
-    furigana: "よこやまりくと",
-    song: ``,
-    songFurigana: ``
+    furigana: "よこやまりくと"
   },
   {
     league: "パ",
     position: "捕手",
     team: "北海道日本ハムファイターズ",
-    logo: "logos/fighters.png",
     number: "64",
     name: "田宮裕涼",
-    furigana: "たみやゆあ",
-    song: ``,
-    songFurigana: ``
+    furigana: "たみやゆあ"
   },
   {
     league: "パ",
     position: "捕手",
     team: "オリックス・バファローズ",
-    logo: "logos/buffaloes.png",
     number: "2",
     name: "若月健矢",
-    furigana: "わかつきけんや",
-    song: ``,
-    songFurigana: ``
+    furigana: "わかつきけんや"
   },
   {
     league: "パ",
     position: "内野手",
     team: "北海道日本ハムファイターズ",
-    logo: "logos/fighters.png",
     number: "21",
     name: "清宮幸太郎",
-    furigana: "きよみやこうたろう",
-    song: ``,
-    songFurigana: ``
+    furigana: "きよみやこうたろう"
   },
   {
     league: "パ",
     position: "内野手",
     team: "埼玉西武ライオンズ",
-    logo: "logos/lions.png",
     number: "26",
     name: "Ｔ．ネビン",
-    furigana: "てぃーねびん",
-    song: ``,
-    songFurigana: ``
+    furigana: "てぃーねびん"
   },
   {
     league: "パ",
     position: "内野手",
     team: "千葉ロッテマリーンズ",
-    logo: "logos/marines.png",
     number: "57",
     name: "小川龍成",
-    furigana: "おがわりゅうせい",
-    song: ``,
-    songFurigana: ``
+    furigana: "おがわりゅうせい"
   },
   {
     league: "パ",
     position: "内野手",
     team: "埼玉西武ライオンズ",
-    logo: "logos/lions.png",
     number: "62",
     name: "滝澤夏央",
-    furigana: "たきざわなつお",
-    song: ``,
-    songFurigana: ``
+    furigana: "たきざわなつお"
   },
   {
     league: "パ",
     position: "内野手",
     team: "福岡ソフトバンクホークス",
-    logo: "logos/hawks.png",
     number: "24",
     name: "栗原陵矢",
-    furigana: "くりはらりょうや",
-    song: ``,
-    songFurigana: ``
+    furigana: "くりはらりょうや"
   },
   {
     league: "パ",
     position: "内野手",
     team: "北海道日本ハムファイターズ",
-    logo: "logos/fighters.png",
     number: "43",
     name: "水野達稀",
-    furigana: "みずのたつき",
-    song: ``,
-    songFurigana: ``
+    furigana: "みずのたつき"
   },
   {
     league: "パ",
     position: "内野手",
     team: "東北楽天ゴールデンイーグルス",
-    logo: "logos/eagles.png",
     number: "6",
     name: "村林一輝",
-    furigana: "むらばやしいつき",
-    song: ``,
-    songFurigana: ``
+    furigana: "むらばやしいつき"
   },
   {
     league: "パ",
     position: "内野手",
     team: "オリックス・バファローズ",
-    logo: "logos/buffaloes.png",
     number: "1",
     name: "太田椋",
-    furigana: "おおたりょう",
-    song: ``,
-    songFurigana: ``
+    furigana: "おおたりょう"
   },
   {
     league: "パ",
     position: "外野手",
     team: "北海道日本ハムファイターズ",
-    logo: "logos/fighters.png",
     number: "66",
     name: "万波中正",
-    furigana: "まんなみちゅうせい",
-    song: ``,
-    songFurigana: ``
+    furigana: "まんなみちゅうせい"
   },
   {
     league: "パ",
     position: "外野手",
     team: "千葉ロッテマリーンズ",
-    logo: "logos/marines.png",
     number: "6",
     name: "西川史礁",
-    furigana: "にしかわみしょう",
-    song: ``,
-    songFurigana: ``
+    furigana: "にしかわみしょう"
   },
   {
     league: "パ",
     position: "外野手",
     team: "福岡ソフトバンクホークス",
-    logo: "logos/hawks.png",
     number: "23",
     name: "周東佑京",
-    furigana: "しゅうとううきょう",
-    song: ``,
-    songFurigana: ``
+    furigana: "しゅうとううきょう"
   },
   {
     league: "パ",
     position: "外野手",
     team: "福岡ソフトバンクホークス",
-    logo: "logos/hawks.png",
     number: "3",
     name: "近藤健介",
-    furigana: "こんどうけんすけ",
-    song: ``,
-    songFurigana: ``
+    furigana: "こんどうけんすけ"
   },
   {
     league: "パ",
     position: "外野手",
     team: "オリックス・バファローズ",
-    logo: "logos/buffaloes.png",
     number: "7",
     name: "西川龍馬",
-    furigana: "にしかわりょうま",
-    song: ``,
-    songFurigana: ``
+    furigana: "にしかわりょうま"
   },
   {
     league: "パ",
     position: "外野手",
     team: "東北楽天ゴールデンイーグルス",
-    logo: "logos/eagles.png",
     number: "8",
     name: "辰己涼介",
-    furigana: "たつみりょうすけ",
-    song: ``,
-    songFurigana: ``
+    furigana: "たつみりょうすけ"
   },
   {
     league: "パ",
     position: "DH",
     team: "北海道日本ハムファイターズ",
-    logo: "logos/fighters.png",
     number: "99",
     name: "Ｆ．レイエス",
-    furigana: "えふれいえす",
-    song: ``,
-    songFurigana: ``
+    furigana: "えふれいえす"
   },
 ];

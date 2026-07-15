@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>応援歌入力ツール</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,"Yu Gothic",sans-serif;max-width:760px;margin:auto;padding:20px;background:#f5f7fa;color:#172033}
+h1{font-size:26px}label{display:block;margin:16px 0 6px;font-weight:700}select,textarea,button{width:100%;font:inherit}
+select,textarea{border:1px solid #ccd2da;border-radius:12px;padding:12px;background:white}textarea{min-height:170px;line-height:1.7}
+button{margin-top:14px;padding:13px;border:0;border-radius:12px;background:#0d1b2a;color:white;font-weight:800}.secondary{background:#a77b00}
+.card{background:white;border-radius:18px;padding:18px;box-shadow:0 8px 24px rgba(0,0,0,.07)}.note{color:#697386;font-size:14px;line-height:1.6}
+</style></head><body>
+<h1>応援歌入力ツール</h1>
+<p class="note">選手を選び、歌詞とふりがなを入力します。最後に「songs.jsを出力」を押し、出力されたsongs.jsをGitHubで置き換えてください。</p>
+<div class="card">
+<label for="playerSelect">選手</label><select id="playerSelect"></select>
+<label for="songInput">応援歌</label><textarea id="songInput"></textarea>
+<label for="furiganaInput">ふりがな</label><textarea id="furiganaInput"></textarea>
+<button id="savePlayer" type="button">この選手を一時保存</button>
+<button id="exportFile" class="secondary" type="button">songs.jsを出力</button>
+</div>
+<script src="data.js"></script><script src="songs.js"></script>
+<script>
+const select=document.getElementById("playerSelect"),songInput=document.getElementById("songInput"),furiganaInput=document.getElementById("furiganaInput");
+const working=JSON.parse(JSON.stringify(songs));
+players.forEach(player=>{const option=document.createElement("option");option.value=player.name;option.textContent=`${player.league} #${player.number} ${player.name}（${player.team}）`;select.appendChild(option);});
+function loadPlayer(){const v=working[select.value]||{song:"",songFurigana:""};songInput.value=v.song;furiganaInput.value=v.songFurigana;}
+function saveCurrent(){working[select.value]={song:songInput.value,songFurigana:furiganaInput.value};}
+select.addEventListener("change",loadPlayer);
+document.getElementById("savePlayer").addEventListener("click",()=>{saveCurrent();alert("一時保存しました");});
+document.getElementById("exportFile").addEventListener("click",()=>{saveCurrent();const esc=v=>v.replace(/`/g,"\\`").replace(/\$\{/g,"\\${");
+const entries=Object.entries(working).filter(([,v])=>v.song||v.songFurigana).map(([name,v])=>`  ${JSON.stringify(name)}: {\n    song: \`${esc(v.song)}\`,\n    songFurigana: \`${esc(v.songFurigana)}\`\n  }`).join(",\n\n");
+const output=`// 応援歌データ\nconst songs = {\n${entries}\n};\n`;const blob=new Blob([output],{type:"text/javascript;charset=utf-8"});const url=URL.createObjectURL(blob);const a=document.createElement("a");a.href=url;a.download="songs.js";a.click();URL.revokeObjectURL(url);});
+loadPlayer();
+</script></body></html>
