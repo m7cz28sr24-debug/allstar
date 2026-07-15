@@ -1,161 +1,75 @@
-// =========================================
-// マイナビオールスター2026
-// data.js Ver0.1
-// =========================================
-
 const players = [
-
-    // ==========================
-    // セ・リーグ
-    // ==========================
-
-    {
-        league: "セ",
-
-        team: "東京ヤクルトスワローズ",
-
-        logo: "logos/swallows.png",
-
-        name: "古賀優大",
-
-        number: "2",
-
-        furigana: "こがゆうだい",
-
-        song:
+  {
+    league: "セ",
+    team: "東京ヤクルトスワローズ",
+    logo: "logos/swallows.png",
+    number: "57",
+    name: "古賀優大",
+    furigana: "こがゆうだい",
+    song:
 `溢れる情熱 心奮わす
 ホームを守る 最後の砦となれ`,
-
-        songFurigana:
+    songFurigana:
 `あふれるじょうねつ こころふるわす
 ほーむをまもる さいごのとりでとなれ`
-    },
-
-    {
-        league: "セ",
-
-        team: "阪神タイガース",
-
-        logo: "logos/tigers.png",
-
-        number: "12",
-        
-        name: "坂本誠志郎",
-
-        furigana: "さかもとせいしろう",
-
-        song:
+  },
+  {
+    league: "セ",
+    team: "阪神タイガース",
+    logo: "logos/tigers.png",
+    number: "12",
+    name: "坂本誠志郎",
+    furigana: "さかもとせいしろう",
+    song:
 `狙いを定め 強気で攻めろ
 お前の時代を築け さぁぶちかませ
 
 かっとばせー
 さーかーもとー`,
-
-        songFurigana:
+    songFurigana:
 `ねらいをさだめ つよきでせめろ
 おまえのじだいをきずけ さぁぶちかませ
 
 かっとばせー
 さーかーもとー`
-    },
-
-    {
-        league: "セ",
-
-        team: "読売ジャイアンツ",
-
-        logo: "logos/giants.png",
-
-        number: "24",
-        
-        name: "大城卓三",
-
-        furigana: "おおしろたくみ",
-
-        song:
+  },
+  {
+    league: "セ",
+    team: "読売ジャイアンツ",
+    logo: "logos/giants.png",
+    number: "24",
+    name: "大城卓三",
+    furigana: "おおしろたくみ",
+    song:
 `鋭いまなざし
 満ちあふれる男気
 魅せろパワー
 フルスイング
 ぶち込め大城`,
-
-        songFurigana:
+    songFurigana:
 `するどいまなざし
 みちあふれるおとこぎ
 みせろぱわー
 ふるすいんぐ
 ぶちこめおおしろ`
-    },
+  }
 
+  /*
+  追加例
 
-
-    // ==========================
-    // パ・リーグ
-    // ==========================
-
-    /*
-    {
-        league:"パ",
-
-        team:"福岡ソフトバンクホークス",
-
-        logo:"logos/hawks.png",
-
-        name:"近藤健介",
-
-        furigana:"こんどうけんすけ",
-
-        song:``,
-        songFurigana:``
-    },
-    */
-
+  ,{
+    league: "パ",
+    team: "福岡ソフトバンクホークス",
+    logo: "logos/hawks.png",
+    number: "3",
+    name: "選手名",
+    furigana: "せんしゅめい",
+    song: `応援歌`,
+    songFurigana: `おうえんか`
+  }
+  */
 ];
 
-
-// =========================================
-// 選手名順に自動ソート
-// =========================================
-
 players.sort((a, b) =>
-
-    a.furigana.localeCompare(
-        b.furigana,
-        "ja"
-    )
-
+  a.furigana.localeCompare(b.furigana, "ja")
 );
-
-
-// =========================================
-// データ形式
-// =========================================
-
-/*
-
-{
-    league : "セ" または "パ",
-
-    team : "球団名",
-
-    logo : "logos/○○.png",
-
-    number: "背番号",
-    
-    name : "選手名",
-
-    furigana : "検索用",
-
-    song : `応援歌`,
-
-    songFurigana : `ふりがな`
-}
-
-*/
-
-
-// =========================================
-// 新しい選手を追加するときは
-// players.push(...)ではなく
-// 上に追記するだけでOK
-// =========================================
