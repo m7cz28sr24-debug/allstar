@@ -149,7 +149,7 @@ function renderPlayers(){
             player.team;
 
         card.querySelector(".playerName").textContent =
-            player.name;
+            `#${player.number}　${player.name}`;
 
         card.querySelector(".playerTeam").textContent =
             player.team;
