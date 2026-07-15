@@ -35,6 +35,18 @@ const players = [
   },
   {
     league: "セ",
+    team: "広島カープ",
+    logo: "logos/carp.png",
+    number: "!",
+    name: "スラィリー",
+    furigana: "すらぃりー",
+    song:
+``,
+    songFurigana:
+``
+  },
+  {
+    league: "セ",
     team: "読売ジャイアンツ",
     logo: "logos/giants.png",
     number: "24",
