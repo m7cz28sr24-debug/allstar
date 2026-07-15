@@ -1,7 +1,21 @@
 // マイナビオールスターゲーム2026 出場選手データ
 // 監督・コーチは除外しています。
-// song / songFurigana が空欄の選手は、歌詞を確認して追記してください。
-// 既にユーザーから提供された3選手分のみ歌詞を収録しています。
+// 歌詞は、この会話で提供された3選手分のみ収録しています。
+
+const teams = {
+  "東京ヤクルトスワローズ": { logo: "logos/swallows.png", color: "#0f8a5f" },
+  "読売ジャイアンツ": { logo: "logos/giants.png", color: "#f26a21" },
+  "阪神タイガース": { logo: "logos/tigers.png", color: "#f4c300" },
+  "横浜DeNAベイスターズ": { logo: "logos/baystars.png", color: "#0067b1" },
+  "中日ドラゴンズ": { logo: "logos/dragons.png", color: "#164194" },
+  "広島東洋カープ": { logo: "logos/carp.png", color: "#d71920" },
+  "北海道日本ハムファイターズ": { logo: "logos/fighters.png", color: "#1770b8" },
+  "千葉ロッテマリーンズ": { logo: "logos/marines.png", color: "#111111" },
+  "オリックス・バファローズ": { logo: "logos/buffaloes.png", color: "#b58a31" },
+  "福岡ソフトバンクホークス": { logo: "logos/hawks.png", color: "#f6c900" },
+  "東北楽天ゴールデンイーグルス": { logo: "logos/eagles.png", color: "#8b1538" },
+  "埼玉西武ライオンズ": { logo: "logos/lions.png", color: "#123e7c" },
+};
 
 const players = [
   {
@@ -11,7 +25,7 @@ const players = [
     logo: "logos/swallows.png",
     number: "26",
     name: "山野太一",
-    furigana: "",
+    furigana: "やまのたいち",
     song: ``,
     songFurigana: ``
   },
@@ -22,7 +36,7 @@ const players = [
     logo: "logos/giants.png",
     number: "15",
     name: "大勢",
-    furigana: "",
+    furigana: "たいせい",
     song: ``,
     songFurigana: ``
   },
@@ -33,7 +47,7 @@ const players = [
     logo: "logos/swallows.png",
     number: "11",
     name: "Ｊ．キハダ",
-    furigana: "",
+    furigana: "じぇーきはだ",
     song: ``,
     songFurigana: ``
   },
@@ -44,7 +58,7 @@ const players = [
     logo: "logos/tigers.png",
     number: "29",
     name: "髙橋遥人",
-    furigana: "",
+    furigana: "たかはしはると",
     song: ``,
     songFurigana: ``
   },
@@ -55,7 +69,7 @@ const players = [
     logo: "logos/tigers.png",
     number: "98",
     name: "Ｒ．ドリス",
-    furigana: "",
+    furigana: "あーるどりす",
     song: ``,
     songFurigana: ``
   },
@@ -66,7 +80,7 @@ const players = [
     logo: "logos/baystars.png",
     number: "11",
     name: "東克樹",
-    furigana: "",
+    furigana: "あずまかつき",
     song: ``,
     songFurigana: ``
   },
@@ -77,7 +91,7 @@ const players = [
     logo: "logos/baystars.png",
     number: "62",
     name: "Ｓ．レイノルズ",
-    furigana: "",
+    furigana: "えすれいのるず",
     song: ``,
     songFurigana: ``
   },
@@ -88,7 +102,7 @@ const players = [
     logo: "logos/giants.png",
     number: "45",
     name: "田中瑛斗",
-    furigana: "",
+    furigana: "たなかえいと",
     song: ``,
     songFurigana: ``
   },
@@ -99,7 +113,7 @@ const players = [
     logo: "logos/giants.png",
     number: "97",
     name: "井上温大",
-    furigana: "",
+    furigana: "いのうえはると",
     song: ``,
     songFurigana: ``
   },
@@ -110,7 +124,7 @@ const players = [
     logo: "logos/dragons.png",
     number: "22",
     name: "大野雄大",
-    furigana: "",
+    furigana: "おおのゆうだい",
     song: ``,
     songFurigana: ``
   },
@@ -121,7 +135,7 @@ const players = [
     logo: "logos/dragons.png",
     number: "90",
     name: "松山晋也",
-    furigana: "",
+    furigana: "まつやましんや",
     song: ``,
     songFurigana: ``
   },
@@ -132,7 +146,7 @@ const players = [
     logo: "logos/carp.png",
     number: "53",
     name: "岡本駿",
-    furigana: "",
+    furigana: "おかもとしゅん",
     song: ``,
     songFurigana: ``
   },
@@ -143,7 +157,7 @@ const players = [
     logo: "logos/carp.png",
     number: "68",
     name: "Ｔ．ハーン",
-    furigana: "",
+    furigana: "てぃーはーん",
     song: ``,
     songFurigana: ``
   },
@@ -154,7 +168,7 @@ const players = [
     logo: "logos/swallows.png",
     number: "17",
     name: "清水昇",
-    furigana: "",
+    furigana: "しみずのぼる",
     song: ``,
     songFurigana: ``
   },
@@ -165,7 +179,7 @@ const players = [
     logo: "logos/swallows.png",
     number: "24",
     name: "星知弥",
-    furigana: "",
+    furigana: "ほしともや",
     song: ``,
     songFurigana: ``
   },
@@ -176,7 +190,7 @@ const players = [
     logo: "logos/swallows.png",
     number: "2",
     name: "古賀優大",
-    furigana: "",
+    furigana: "こがゆうだい",
     song: `溢れる情熱 心奮わす
 ホームを守る 最後の砦となれ`,
     songFurigana: `あふれるじょうねつ こころふるわす
@@ -189,7 +203,7 @@ const players = [
     logo: "logos/tigers.png",
     number: "12",
     name: "坂本誠志郎",
-    furigana: "",
+    furigana: "さかもとせいしろう",
     song: `狙いを定め 強気で攻めろ
 お前の時代を築け さぁぶちかませ
 
@@ -208,7 +222,7 @@ const players = [
     logo: "logos/giants.png",
     number: "24",
     name: "大城卓三",
-    furigana: "",
+    furigana: "おおしろたくみ",
     song: `鋭いまなざし
 満ちあふれる男気
 魅せろパワー
@@ -227,7 +241,7 @@ const players = [
     logo: "logos/carp.png",
     number: "31",
     name: "坂倉将吾",
-    furigana: "",
+    furigana: "さかくらしょうご",
     song: ``,
     songFurigana: ``
   },
@@ -238,7 +252,7 @@ const players = [
     logo: "logos/tigers.png",
     number: "3",
     name: "大山悠輔",
-    furigana: "",
+    furigana: "おおやまゆうすけ",
     song: ``,
     songFurigana: ``
   },
@@ -249,7 +263,7 @@ const players = [
     logo: "logos/tigers.png",
     number: "7",
     name: "中野拓夢",
-    furigana: "",
+    furigana: "なかのたくむ",
     song: ``,
     songFurigana: ``
   },
@@ -260,7 +274,7 @@ const players = [
     logo: "logos/tigers.png",
     number: "8",
     name: "佐藤輝明",
-    furigana: "",
+    furigana: "さとうてるあき",
     song: ``,
     songFurigana: ``
   },
@@ -271,7 +285,7 @@ const players = [
     logo: "logos/dragons.png",
     number: "5",
     name: "村松開人",
-    furigana: "",
+    furigana: "むらまつかいと",
     song: ``,
     songFurigana: ``
   },
@@ -282,7 +296,7 @@ const players = [
     logo: "logos/swallows.png",
     number: "7",
     name: "長岡秀樹",
-    furigana: "",
+    furigana: "ながおかひでき",
     song: ``,
     songFurigana: ``
   },
@@ -293,7 +307,7 @@ const players = [
     logo: "logos/baystars.png",
     number: "2",
     name: "牧秀悟",
-    furigana: "",
+    furigana: "まきしゅうご",
     song: ``,
     songFurigana: ``
   },
@@ -304,7 +318,7 @@ const players = [
     logo: "logos/giants.png",
     number: "32",
     name: "浦田俊輔",
-    furigana: "",
+    furigana: "うらたしゅんすけ",
     song: ``,
     songFurigana: ``
   },
@@ -315,7 +329,7 @@ const players = [
     logo: "logos/tigers.png",
     number: "1",
     name: "森下翔太",
-    furigana: "",
+    furigana: "もりしたしょうた",
     song: ``,
     songFurigana: ``
   },
@@ -326,7 +340,7 @@ const players = [
     logo: "logos/dragons.png",
     number: "55",
     name: "細川成也",
-    furigana: "",
+    furigana: "ほそかわせいや",
     song: ``,
     songFurigana: ``
   },
@@ -337,7 +351,7 @@ const players = [
     logo: "logos/swallows.png",
     number: "63",
     name: "増田珠",
-    furigana: "",
+    furigana: "ますだしゅ",
     song: ``,
     songFurigana: ``
   },
@@ -348,7 +362,7 @@ const players = [
     logo: "logos/giants.png",
     number: "13",
     name: "Ｔ．キャベッジ",
-    furigana: "",
+    furigana: "てぃーきゃべっじ",
     song: ``,
     songFurigana: ``
   },
@@ -358,8 +372,8 @@ const players = [
     team: "北海道日本ハムファイターズ",
     logo: "logos/fighters.png",
     number: "17",
-    name: "伊藤大海",
-    furigana: "",
+    name: "伊藤大海",
+    furigana: "いとうひろみ",
     song: ``,
     songFurigana: ``
   },
@@ -370,7 +384,7 @@ const players = [
     logo: "logos/marines.png",
     number: "47",
     name: "鈴木昭汰",
-    furigana: "",
+    furigana: "すずきしょうた",
     song: ``,
     songFurigana: ``
   },
@@ -381,7 +395,7 @@ const players = [
     logo: "logos/buffaloes.png",
     number: "42",
     name: "Ａ．マチャド",
-    furigana: "",
+    furigana: "えーまちゃど",
     song: ``,
     songFurigana: ``
   },
@@ -392,7 +406,7 @@ const players = [
     logo: "logos/hawks.png",
     number: "19",
     name: "大津亮介",
-    furigana: "",
+    furigana: "おおつりょうすけ",
     song: ``,
     songFurigana: ``
   },
@@ -403,7 +417,7 @@ const players = [
     logo: "logos/hawks.png",
     number: "54",
     name: "Ｒ．オスナ",
-    furigana: "",
+    furigana: "あーるおすな",
     song: ``,
     songFurigana: ``
   },
@@ -414,7 +428,7 @@ const players = [
     logo: "logos/fighters.png",
     number: "15",
     name: "北山亘基",
-    furigana: "",
+    furigana: "きたやまこうき",
     song: ``,
     songFurigana: ``
   },
@@ -425,7 +439,7 @@ const players = [
     logo: "logos/buffaloes.png",
     number: "00",
     name: "Ａ．エスピノーザ",
-    furigana: "",
+    furigana: "えーえすぴのーざ",
     song: ``,
     songFurigana: ``
   },
@@ -436,7 +450,7 @@ const players = [
     logo: "logos/buffaloes.png",
     number: "15",
     name: "椋木蓮",
-    furigana: "",
+    furigana: "むくのきれん",
     song: ``,
     songFurigana: ``
   },
@@ -447,7 +461,7 @@ const players = [
     logo: "logos/eagles.png",
     number: "46",
     name: "藤平尚真",
-    furigana: "",
+    furigana: "ふじひらしょうま",
     song: ``,
     songFurigana: ``
   },
@@ -458,7 +472,7 @@ const players = [
     logo: "logos/lions.png",
     number: "13",
     name: "髙橋光成",
-    furigana: "",
+    furigana: "たかはしこうな",
     song: ``,
     songFurigana: ``
   },
@@ -469,7 +483,7 @@ const players = [
     logo: "logos/lions.png",
     number: "20",
     name: "岩城颯空",
-    furigana: "",
+    furigana: "いわきそら",
     song: ``,
     songFurigana: ``
   },
@@ -480,7 +494,7 @@ const players = [
     logo: "logos/lions.png",
     number: "61",
     name: "平良海馬",
-    furigana: "",
+    furigana: "たいらかいま",
     song: ``,
     songFurigana: ``
   },
@@ -491,7 +505,7 @@ const players = [
     logo: "logos/marines.png",
     number: "15",
     name: "横山陸人",
-    furigana: "",
+    furigana: "よこやまりくと",
     song: ``,
     songFurigana: ``
   },
@@ -502,7 +516,7 @@ const players = [
     logo: "logos/fighters.png",
     number: "64",
     name: "田宮裕涼",
-    furigana: "",
+    furigana: "たみやゆあ",
     song: ``,
     songFurigana: ``
   },
@@ -513,7 +527,7 @@ const players = [
     logo: "logos/buffaloes.png",
     number: "2",
     name: "若月健矢",
-    furigana: "",
+    furigana: "わかつきけんや",
     song: ``,
     songFurigana: ``
   },
@@ -524,7 +538,7 @@ const players = [
     logo: "logos/fighters.png",
     number: "21",
     name: "清宮幸太郎",
-    furigana: "",
+    furigana: "きよみやこうたろう",
     song: ``,
     songFurigana: ``
   },
@@ -535,7 +549,7 @@ const players = [
     logo: "logos/lions.png",
     number: "26",
     name: "Ｔ．ネビン",
-    furigana: "",
+    furigana: "てぃーねびん",
     song: ``,
     songFurigana: ``
   },
@@ -546,7 +560,7 @@ const players = [
     logo: "logos/marines.png",
     number: "57",
     name: "小川龍成",
-    furigana: "",
+    furigana: "おがわりゅうせい",
     song: ``,
     songFurigana: ``
   },
@@ -557,7 +571,7 @@ const players = [
     logo: "logos/lions.png",
     number: "62",
     name: "滝澤夏央",
-    furigana: "",
+    furigana: "たきざわなつお",
     song: ``,
     songFurigana: ``
   },
@@ -568,7 +582,7 @@ const players = [
     logo: "logos/hawks.png",
     number: "24",
     name: "栗原陵矢",
-    furigana: "",
+    furigana: "くりはらりょうや",
     song: ``,
     songFurigana: ``
   },
@@ -579,7 +593,7 @@ const players = [
     logo: "logos/fighters.png",
     number: "43",
     name: "水野達稀",
-    furigana: "",
+    furigana: "みずのたつき",
     song: ``,
     songFurigana: ``
   },
@@ -590,7 +604,7 @@ const players = [
     logo: "logos/eagles.png",
     number: "6",
     name: "村林一輝",
-    furigana: "",
+    furigana: "むらばやしいつき",
     song: ``,
     songFurigana: ``
   },
@@ -601,7 +615,7 @@ const players = [
     logo: "logos/buffaloes.png",
     number: "1",
     name: "太田椋",
-    furigana: "",
+    furigana: "おおたりょう",
     song: ``,
     songFurigana: ``
   },
@@ -612,7 +626,7 @@ const players = [
     logo: "logos/fighters.png",
     number: "66",
     name: "万波中正",
-    furigana: "",
+    furigana: "まんなみちゅうせい",
     song: ``,
     songFurigana: ``
   },
@@ -623,7 +637,7 @@ const players = [
     logo: "logos/marines.png",
     number: "6",
     name: "西川史礁",
-    furigana: "",
+    furigana: "にしかわみしょう",
     song: ``,
     songFurigana: ``
   },
@@ -634,7 +648,7 @@ const players = [
     logo: "logos/hawks.png",
     number: "23",
     name: "周東佑京",
-    furigana: "",
+    furigana: "しゅうとううきょう",
     song: ``,
     songFurigana: ``
   },
@@ -645,7 +659,7 @@ const players = [
     logo: "logos/hawks.png",
     number: "3",
     name: "近藤健介",
-    furigana: "",
+    furigana: "こんどうけんすけ",
     song: ``,
     songFurigana: ``
   },
@@ -656,7 +670,7 @@ const players = [
     logo: "logos/buffaloes.png",
     number: "7",
     name: "西川龍馬",
-    furigana: "",
+    furigana: "にしかわりょうま",
     song: ``,
     songFurigana: ``
   },
@@ -667,7 +681,7 @@ const players = [
     logo: "logos/eagles.png",
     number: "8",
     name: "辰己涼介",
-    furigana: "",
+    furigana: "たつみりょうすけ",
     song: ``,
     songFurigana: ``
   },
@@ -678,12 +692,8 @@ const players = [
     logo: "logos/fighters.png",
     number: "99",
     name: "Ｆ．レイエス",
-    furigana: "",
+    furigana: "えふれいえす",
     song: ``,
     songFurigana: ``
   },
 ];
-
-// NPB掲載順を維持します。
-// ふりがなを入力した後に五十音順へ並べたい場合は、下記コメントを外してください。
-// players.sort((a, b) => a.furigana.localeCompare(b.furigana, "ja"));

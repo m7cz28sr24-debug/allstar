@@ -4,40 +4,79 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0d1b2a">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="応援歌">
+  <meta name="description" content="マイナビオールスター2026 応援歌ライブラリ">
   <title>マイナビオールスター2026 応援歌</title>
+
+  <link rel="manifest" href="manifest.json">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <div id="app">
     <header class="header">
-      <div class="titleArea">
-        <div class="titleIcon" aria-hidden="true">⚾</div>
+      <div class="headerInner">
         <div>
-          <h1>マイナビオールスター2026</h1>
-          <p>応援歌ライブラリ</p>
+          <p class="eyebrow">MYNAVI ALL-STAR GAME 2026</p>
+          <h1>応援歌ライブラリ</h1>
         </div>
+
+        <button id="installButton" class="installButton" type="button" hidden>
+          ホーム画面に追加
+        </button>
       </div>
     </header>
 
-    <section class="leagueSection" aria-label="リーグ選択">
-      <button id="btnCentral" class="leagueButton active" data-league="セ">セ・リーグ</button>
-      <button id="btnPacific" class="leagueButton" data-league="パ">パ・リーグ</button>
-      <button id="btnFavorites" class="leagueButton favoriteTab" data-league="お気に入り">★ お気に入り</button>
-    </section>
+    <main class="main">
+      <section class="controls" aria-label="表示条件">
+        <div class="leagueTabs" role="tablist" aria-label="リーグ">
+          <button class="leagueTab active" data-mode="セ" role="tab" aria-selected="true">
+            セ・リーグ
+          </button>
+          <button class="leagueTab" data-mode="パ" role="tab" aria-selected="false">
+            パ・リーグ
+          </button>
+          <button class="leagueTab favoriteTab" data-mode="お気に入り" role="tab" aria-selected="false">
+            ★ お気に入り
+          </button>
+        </div>
 
-    <section class="searchSection">
-      <label class="searchBox">
-        <span aria-hidden="true">🔎</span>
-        <input
-          id="searchInput"
-          type="search"
-          autocomplete="off"
-          inputmode="search"
-          placeholder="選手名・球団名・背番号で検索">
-      </label>
-    </section>
+        <label class="searchBox">
+          <span class="searchIcon" aria-hidden="true">⌕</span>
+          <input
+            id="searchInput"
+            type="search"
+            autocomplete="off"
+            inputmode="search"
+            placeholder="選手名・球団名・背番号で検索"
+            aria-label="選手名・球団名・背番号で検索">
+          <button id="clearSearchButton" class="clearSearchButton" type="button" aria-label="検索を消去" hidden>
+            ×
+          </button>
+        </label>
 
-    <main id="playerList" class="playerList" aria-live="polite"></main>
+        <div class="subControls">
+          <label class="positionFilterLabel">
+            <span>守備位置</span>
+            <select id="positionFilter" aria-label="守備位置で絞り込み">
+              <option value="">すべて</option>
+              <option value="投手">投手</option>
+              <option value="捕手">捕手</option>
+              <option value="内野手">内野手</option>
+              <option value="外野手">外野手</option>
+              <option value="DH">DH</option>
+            </select>
+          </label>
+
+          <p id="resultCount" class="resultCount"></p>
+        </div>
+      </section>
+
+      <section id="playerList" class="playerList" aria-live="polite"></section>
+    </main>
   </div>
 
   <div id="overlay" class="overlay" hidden></div>
@@ -51,8 +90,8 @@
     hidden>
     <div id="sheetHandle" class="sheetHandle" aria-hidden="true"></div>
 
-    <div class="sheetHeader">
-      <div class="sheetPlayer">
+    <div class="sheetTop">
+      <div class="sheetIdentity">
         <div id="sheetNumber" class="sheetNumber"></div>
         <div>
           <h2 id="sheetName"></h2>
@@ -60,31 +99,52 @@
         </div>
       </div>
 
-      <button id="closeButton" class="closeButton" type="button" aria-label="閉じる">×</button>
+      <button id="closeButton" class="iconButton closeButton" type="button" aria-label="閉じる">
+        ×
+      </button>
     </div>
 
-    <div class="sheetToolbar">
-      <button id="sheetFavoriteButton" class="favoriteButton" type="button">☆ お気に入り</button>
+    <div class="sheetActions">
+      <button id="sheetFavoriteButton" class="actionButton favoriteAction" type="button">
+        ☆ お気に入り
+      </button>
 
-      <div class="fontSizeArea" aria-label="歌詞の文字サイズ">
-        <button class="fontButton" data-size="-1" type="button">A−</button>
-        <button class="fontButton" data-size="0" type="button">A</button>
-        <button class="fontButton" data-size="1" type="button">A＋</button>
-      </div>
+      <button id="copyButton" class="actionButton" type="button">
+        歌詞をコピー
+      </button>
     </div>
 
-    <div class="lyricsArea">
+    <div class="fontControl">
+      <label for="fontSizeSlider">歌詞サイズ</label>
+      <input id="fontSizeSlider" type="range" min="18" max="36" step="1" value="24">
+      <output id="fontSizeValue" for="fontSizeSlider">24px</output>
+    </div>
+
+    <article class="lyricsPanel">
       <div id="lyrics" class="lyrics"></div>
+      <div id="noLyricsMessage" class="noLyricsMessage" hidden>
+        この選手の応援歌はまだ登録されていません。
+      </div>
+
       <hr>
+
       <div id="furigana" class="furigana"></div>
-    </div>
+    </article>
+
+    <nav class="sheetNavigation" aria-label="前後の選手">
+      <button id="previousButton" type="button">← 前の選手</button>
+      <button id="nextButton" type="button">次の選手 →</button>
+    </nav>
   </section>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
 
   <template id="playerCardTemplate">
     <article class="playerCard" tabindex="0">
+      <div class="teamAccent" aria-hidden="true"></div>
+
       <div class="logoArea">
         <img class="teamLogo" src="" alt="">
-        <div class="logoFallback" aria-hidden="true">⚾</div>
       </div>
 
       <div class="playerInfo">
@@ -92,11 +152,14 @@
           <span class="numberBadge"></span>
           <h2 class="playerName"></h2>
         </div>
-        <p class="playerTeam"></p>
+        <p class="playerMeta"></p>
       </div>
 
-      <button class="cardFavorite" type="button" aria-label="お気に入りに追加">☆</button>
-      <div class="arrow" aria-hidden="true">›</div>
+      <button class="cardFavorite" type="button" aria-label="お気に入りに追加">
+        ☆
+      </button>
+
+      <span class="arrow" aria-hidden="true">›</span>
     </article>
   </template>
 
