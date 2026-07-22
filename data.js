@@ -226,6 +226,14 @@ const players = [
   },
   {
     league: "セ",
+    position: "内野手",
+    team: "読売ジャイアンツ",
+    number: "6",
+    name: "坂本勇人",
+    furigana: "さかもとはやと"
+  },
+  {
+    league: "セ",
     position: "外野手",
     team: "阪神タイガース",
     number: "1",
@@ -489,6 +497,14 @@ const players = [
     furigana: "たつみりょうすけ"
   },
   {
+    league: "パ",
+    position: "外野手",
+    team: "福岡ソフトバンクホークス",
+    number: "9",
+    name: "柳田悠岐",
+    furigana: "やなぎたゆうき"
+  },
+   {
     league: "パ",
     position: "DH",
     team: "北海道日本ハムファイターズ",
